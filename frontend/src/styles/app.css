@@ -1,0 +1,310 @@
+/* Tipografía Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Aparencia en cualquier navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+/* splash */
+.splash {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #07073c;
+}
+
+/* animación */
+.splash-title {
+  color: white;
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  animation: fadeInScale 2s ease-out;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* home / containers */
+.container {
+  background: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+  text-align: center;
+}
+
+.logo-dark {
+  color: #0c0d32;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.logo {
+  width: 160px;
+  height: auto;
+  display: block;
+}
+
+/* buttons */
+.primary-btn {
+  background: #0b0e2d !important;
+  color: white !important;
+  border: none;
+  padding: 15px;
+  border-radius: 30px !important;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.primary-btn:hover {
+  background-color: #161b46 !important;
+}
+
+.secondary-btn {
+  background: white;
+  color: #0c0d32;
+  border: 2px solid #0c0d32;
+  padding: 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  font-weight: 600;
+}
+
+.secondary-btn:hover {
+  background: #f2f2f2;
+}
+
+/* form */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 350px;
+  gap: 15px;
+}
+
+input, select, textarea {
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: #f5f6f8;
+  width: 100%;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border: 1px solid #0b0e2d;
+  background: white;
+  outline: 2px solid #0b0e2d;
+}
+
+/* dashboard */
+.dashboard {
+  padding: 20px;
+}
+
+.header {
+  background: #07073c;
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar {
+  width: 70px;
+  border-radius: 50%;
+}
+
+.search {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.cards {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.card {
+  flex: 1;
+  background: #07073c;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.chatbot {
+  margin-top: 30px;
+  background: #07073c;
+  border: 2px solid #1a237e;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chatbot-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 140px;
+}
+
+.chatbot-robot-img {
+  width: 150px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chatbot-title {
+  margin: 10px 0 0 0;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.chatbot-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chatbot-response-box {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+#ai-response {
+  margin: 0;
+  font-size: 15px;
+  color: #333333;
+  line-height: 1.5;
+  width: 100%;
+}
+
+.chatbot-input-group {
+  display: flex;
+  gap: 12px;
+}
+
+.chatbot-input-group input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  font-size: 14px;
+  background-color: #ffffff !important;
+  color: #333333;
+}
+
+.chatbot-input-group .primary-btn {
+  width: 120px;
+  margin: 0 !important;
+  padding: 0 20px;
+  border-radius: 8px !important;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #0c0d32;
+}
+
+/* ocultar checkbox por default */
+.checkbox input {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #0c0d32;
+  border-radius: 5px;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+/* check cuando está activo */
+.checkbox input:checked {
+  background-color: #0c0d32;
+}
+
+/* palomita */
+.checkbox input:checked::before {
+  content: "✓";
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.profile-subcontainer {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.back-arrow-btn {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  font-size: 24px;
+  color: #0b0e2d;
+  cursor: pointer;
+  user-select: none;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b0e2d;
+  margin-bottom: -4px;
+  padding-left: 4px;
+  display: block;
+}

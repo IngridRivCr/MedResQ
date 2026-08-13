@@ -1,0 +1,29 @@
+# Dependencias
+node_modules/
+**/node_modules/
+
+# Variables de entorno (credenciales) — NUNCA deben subirse
+.env
+.env.*
+!.env.example
+
+# Builds
+dist/
+dist-ssr/
+build/
+
+# Cypress
+frontend/cypress/videos/
+frontend/cypress/screenshots/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Editor / SO
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
