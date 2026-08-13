@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import * as htmlToImage from "html-to-image";
 
 export default function MyQRcode() {
   const navigate = useNavigate();
-  const qrContainerRef = useRef(null);
   const [userId, setUserId] = useState("2");
   const [userName, setUserName] = useState("User");
 
@@ -24,26 +22,29 @@ export default function MyQRcode() {
     }
   }, []);
 
-  // Función para descargar la imagen del QR
-  const downloadQRCode = () => {
-    if (qrContainerRef.current === null) return;
-    htmlToImage.toPng(qrContainerRef.current, { backgroundColor: "#ffffff", pixelRatio: 3 })
-      .then((dataUrl) => {
-        const link = document.createElement("a");
-        link.download = `MedResQ-QR-${userName.replace(/\s+/g, "-")}.png`;
-        link.href = dataUrl;
-        link.click();
-      })
-      .catch((err) => {
-        console.error("No se pudo generar la imagen del QR:", err);
-      });
-  };
-
   // URL dinámica exacta con el user_id
   const profileUrl = `${window.location.origin}/public-profile/${userId}`;
 
-  // Imagen del QR generada por un servicio externo gratuito (sin dependencias de React)
+  // Imagen del QR generada por un servicio externo gratuito (sin dependencias de React ni de build)
   const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=190x190&data=${encodeURIComponent(profileUrl)}`;
+
+  // Descarga directamente la imagen del QR, sin necesitar ninguna librería extra
+  const downloadQRCode = async () => {
+    try {
+      const response = await fetch(qrImageUrl);
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.download = `MedResQ-QR-${userName.replace(/\s+/g, "-")}.png`;
+      link.href = blobUrl;
+      link.click();
+
+      URL.revokeObjectURL(blobUrl);
+    } catch (err) {
+      console.error("No se pudo descargar la imagen del QR:", err);
+    }
+  };
 
   return (
     <div style={{
@@ -109,7 +110,6 @@ export default function MyQRcode() {
         {/* COLUMNA: EL CÓDIGO QR REAL */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div
-            ref={qrContainerRef}
             onClick={downloadQRCode}
             title="Click to download QR Code"
             style={{
