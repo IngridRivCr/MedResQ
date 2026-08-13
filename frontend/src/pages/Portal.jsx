@@ -2,7 +2,7 @@
 
 //Librerías
 import { useNavigate } from "react-router-dom";
-import logoLightMode from "../assets/MEDRESQ_LM.png"; 
+import logoLightMode from "../assets/MedResQ_LM.png"; 
 
 export default function Portal() {
   const navigate = useNavigate();

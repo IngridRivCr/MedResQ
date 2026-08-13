@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/app.css";
 import medresq_img1 from "../assets/medresq_img1.jpg"; 
 import medresq_img2 from "../assets/medresq_img2.jpg"; 
-import logoLightMode from "../assets/MEDRESQ_LM.png"; 
+import logoLightMode from "../assets/MedResQ_LM.png"; 
 
 export default function Splash() {
   const navigate = useNavigate();
