@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { API_URL } from "../services/api";
 
 export default function PublicProfile() {
   const { id } = useParams();
@@ -9,9 +10,7 @@ export default function PublicProfile() {
 
   useEffect(() => {
     // Se arma dinámicamente para que funcione igual en localhost que en la red local (para escanear desde el celular)
-    const backendUrl = `${window.location.protocol}//${window.location.hostname}:3001`;
-
-    fetch(`${backendUrl}/api/public-profile/${id}`, {
+    fetch(`${API_URL}/api/public-profile/${id}`, {
       headers: {
         "ngrok-skip-browser-warning": "true"
       }
